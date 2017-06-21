@@ -95,7 +95,7 @@ EOF
         done
     fi
 
-    chown -R openldap:openldap /etc/ldap/slapd.d/
+    chown -R openldap:openldap /var/lib/ldap/ /var/run/slapd/ /etc/ldap
 else
     slapd_configs_in_env=`env | grep 'SLAPD_'`
 
@@ -112,6 +112,6 @@ if [[ "$first_run" == "true" ]]; then
     fi
 fi
 
-chown -R openldap:openldap /var/lib/ldap/ /var/run/slapd/
+chown -R openldap:openldap /var/lib/ldap/ /var/run/slapd/ /etc/ldap
 
 exec "$@"
